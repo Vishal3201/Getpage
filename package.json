@@ -1,7 +1,10 @@
 {
-  "name": "root",
+  "name": "get2it-root",
+  "version": "1.0.0",
   "private": true,
-  "workspaces": [
-    "backend"
-  ]
+  "scripts": {
+    "install": "cd backend && npm install",
+    "build": "cd backend && npm run build",
+    "start": "cd backend && npm start"
+  }
 }
