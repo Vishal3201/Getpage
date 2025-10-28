@@ -1,9 +1,9 @@
 {
   "name": "get2it-root",
-  "version": "1.0.0",
   "private": true,
+  "workspaces": ["backend", "frontend"],
   "scripts": {
-    "start": "node server.js",
-    "build": "cd frontend && npm install && npm run build"
+    "start": "npm run start --workspace backend",
+    "build": "npm run build --workspace frontend"
   }
 }
