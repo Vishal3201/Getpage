@@ -4,8 +4,9 @@
   "description": "Backend server for Get2IT website",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "cd frontend && npm install && npm run build"
+     "install": "cd backend && npm install",
+    "build": "cd backend && npm run build",
+    "start": "cd backend && npm start"
   },
   "keywords": [],
   "author": "",
