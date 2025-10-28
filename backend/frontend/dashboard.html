@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - Get2IT</title>
+<style>
+body{font-family:sans-serif;padding:20px;}
+.job-card{border:1px solid #ddd;padding:15px;margin:10px 0;border-radius:10px;}
+button{padding:8px 12px;cursor:pointer;}
+</style>
+</head>
+<body>
+<h2>Jobs Dashboard</h2>
+<button onclick="logout()">Logout</button>
+<div id="job-list"></div>
+
+<script>
+// Get token from Google redirect
+const urlParams = new URLSearchParams(window.location.search);
+const googleToken = urlParams.get('token');
+if(googleToken){ localStorage.setItem("token", googleToken); window.history.replaceState({}, document.title,"dashboard.html"); }
+
+const token = localStorage.getItem("token");
+if(!token){ window.location.href="index.html"; }
+
+function logout(){ localStorage.removeItem("token"); window.location.href="index.html"; }
+
+function loadJobs(){
+  fetch("http://localhost:5000/api/jobs",{headers:{"Authorization":"Bearer "+token}})
+  .then(res=>res.json())
+  .then(data=>{
+    const jobList = document.getElementById("job-list");
+    jobList.innerHTML="";
+    data.jobs.forEach(job=>{
+      const div = document.createElement("div");
+      div.className="job-card";
+      div.innerHTML=`<h3>${job.title}</h3><p>${job.description}</p>`;
+      jobList.appendChild(div);
+    });
+  });
+}
+
+loadJobs();
+</script>
+</body>
+</html>

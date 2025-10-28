@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest Jobs - Get2IT</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Latest Jobs</h1>
+      <nav>
+        <a href="/index.html">🏠 Home</a> |
+        <a href="/about.html">About</a> |
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2>Available Jobs</h2>
+      <ul id="jobsList"></ul>
+
+      <h2>Add New Job</h2>
+      <form id="jobForm">
+        <input type="text" id="title" placeholder="Job Title" required><br><br>
+        <input type="text" id="company" placeholder="Company Name" required><br><br>
+        <input type="text" id="location" placeholder="Location" required><br><br>
+        <button type="submit">Add Job</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2023 Get2IT. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const jobsList = document.getElementById('jobsList');
+    const form = document.getElementById('jobForm');
+
+    const backendUrl = 'http://localhost:5002/api/jobs';
+
+    // Fetch and display jobs
+    async function loadJobs() {
+      try {
+        const res = await fetch(backendUrl);
+        const jobs = await res.json();
+        jobsList.innerHTML = '';
+
+        jobs.forEach(job => {
+          const li = document.createElement('li');
+          li.textContent = `${job.title} - ${job.company} (${job.location})`;
+
+          // Delete button
+          const delBtn = document.createElement('button');
+          delBtn.textContent = 'Delete';
+          delBtn.style.marginLeft = '10px';
+          delBtn.onclick = async () => {
+            await fetch(`${backendUrl}/${job.id}`, { method: 'DELETE' });
+            loadJobs();
+          };
+
+          li.appendChild(delBtn);
+          jobsList.appendChild(li);
+        });
+      } catch (err) {
+        console.error('Error loading jobs:', err);
+      }
+    }
+
+    // Add a new job
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const title = document.getElementById('title').value;
+      const company = document.getElementById('company').value;
+      const location = document.getElementById('location').value;
+
+      try {
+        await fetch(backendUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, company, location })
+        });
+        form.reset();
+        loadJobs();
+      } catch (err) {
+        console.error('Error adding job:', err);
+      }
+    });
+
+    // Initial load
+    loadJobs();
+  </script>
+</body>
+</html>

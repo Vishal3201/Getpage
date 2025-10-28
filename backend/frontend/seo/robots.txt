@@ -1,0 +1,15 @@
+# robots.txt for Get2IT
+User-agent: *
+Disallow: /admin/
+Disallow: /draft/
+
+Sitemap: /seo/sitemap.xml
+
+# Allow crawling of all other pages
+Allow: /
+
+# Optimize crawling
+Crawl-delay: 10
+
+# Host information
+Host: https://get2it.com

@@ -1,0 +1,18 @@
+{
+  "name": "Get2IT",
+  "short_name": "Get2IT",
+  "description": "Your one-stop platform for jobs, internships, and certifications.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007bff",
+  "icons": [
+    {
+      "src": "/seo/favicon.ico",
+      "sizes": "48x48 72x72 96x96 144x144 192x192 256x256 384x384 512x512",
+      "type": "image/x-icon"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

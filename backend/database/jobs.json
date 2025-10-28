@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Software Developer",
+    "company": "Tech Solutions Ltd.",
+    "location": "Bangalore, India"
+  },
+  {
+    "id": 2,
+    "title": "Data Analyst",
+    "company": "DataCorp",
+    "location": "Mumbai, India"
+  },
+  {
+    "id": 3,
+    "title": "Frontend Engineer",
+    "company": "WebWorks",
+    "location": "Hyderabad, India"
+  },
+  {
+    "id": 4,
+    "title": "Intern - AI Research",
+    "company": "AI Labs",
+    "location": "Pune, India"
+  },
+  {
+    "id": 5,
+    "title": "Project Manager",
+    "company": "GlobalTech",
+    "location": "Delhi, India"
+  }
+   {
+    "id": 5,
+    "title": "Project Manager",
+    "company": "GlobalTech",
+    "location": "Delhi, India"
+  }
+]

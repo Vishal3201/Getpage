@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "title": "Content Writer",
+    "company": "Freelancer",
+    "url": "https://www.freelancer.com/jobs"
+  },
+  {
+    "id": 2,
+    "title": "Virtual Assistant",
+    "company": "Upwork",
+    "url": "https://www.upwork.com"
+  },
+  {
+    "id": 1,
+    "title": "Introduction to Python",
+    "provider": "Coursera",
+    "url": "https://www.coursera.org/learn/python"
+  },
+  {
+    "id": 2,
+    "title": "Machine Learning Basics",
+    "provider": "edX",
+    "url": "https://www.edx.org/course/machine-learning-basics"
+  },
+  {
+    "id": 3,
+    "title": "Web Development Bootcamp",
+    "provider": "freeCodeCamp",
+    "url": "https://www.freecodecamp.org/learn"
+  }
+
+]

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest Govt Jobs - Get2IT</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Latest Government Jobs</h1>
+      <nav>
+        <a href="/index.html">🏠 Home</a> |
+        <a href="/jobs/latest-jobs.html">Latest Jobs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="section-header">
+        <h2>All Latest Jobs</h2>
+      </div>
+      <div class="section-content" id="jobs-container">Loading jobs...</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2023 Get2IT. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const API_URL = "http://localhost:5000/api/jobs/latest-jobs";
+    const jobsContainer = document.getElementById("jobs-container");
+
+    async function loadJobs() {
+      try {
+        const res = await fetch(API_URL);
+        const jobs = await res.json();
+        if (jobs.length === 0) {
+          jobsContainer.innerHTML = "<p>No jobs available.</p>";
+          return;
+        }
+        jobsContainer.innerHTML = jobs.map(job => `
+          <div class="update-item">
+            <a href="${job.link}" target="_blank" class="update-title">${job.title}</a>
+            <div class="update-date">${job.date}</div>
+            <p class="update-desc">${job.description}</p>
+          </div>
+        `).join("");
+      } catch (err) {
+        jobsContainer.innerHTML = "<p>Error loading jobs.</p>";
+        console.error(err);
+      }
+    }
+
+    loadJobs();
+  </script>
+</body>
+</html>

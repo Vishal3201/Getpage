@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AICTE Internships - Get2IT</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>AICTE Internships</h1>
+      <nav>
+        <a href="/index.html">🏠 Home</a> |
+        <a href="/aicte/internships.html">AICTE Internships</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="section-header">
+        <h2>All AICTE Internships</h2>
+      </div>
+      <div class="section-content" id="aicte-internships-container">Loading AICTE internships...</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2023 Get2IT. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const API_URL = "http://localhost:5000/api/aicte/internships";
+    const aicteInternshipsContainer = document.getElementById("aicte-internships-container");
+
+    async function loadAICteInternships() {
+      try {
+        const res = await fetch(API_URL);
+        const internships = await res.json();
+        if (internships.length === 0) {
+          aicteInternshipsContainer.innerHTML = "<p>No AICTE internships available.</p>";
+          return;
+        }
+        aicteInternshipsContainer.innerHTML = internships.map(internship => `
+          <div class="update-item">
+            <a href="${internship.link}" target="_blank" class="update-title">${internship.title}</a>
+            <div class="update-date">${internship.date}</div>
+            <p class="update-desc">${internship.description}</p>
+          </div>
+        `).join("");
+      } catch (err) {
+        aicteInternshipsContainer.innerHTML = "<p>Error loading AICTE internships.</p>";
+        console.error(err);
+      }
+    }
+
+    loadAICteInternships();
+  </script>
+</body>
+</html>

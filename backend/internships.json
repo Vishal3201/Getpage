@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Frontend Developer Internship",
+    "provider": "XYZ Company",
+    "type": "Remote",
+    "url": "https://xyz.com/internship/frontend"
+  },
+  {
+    "id": 2,
+    "title": "Data Science Internship",
+    "provider": "ABC Labs",
+    "type": "Onsite",
+    "url": "https://abc.com/internship/ds"
+  },
+  {
+    "id": 1,
+    "title": "Introduction to Python",
+    "provider": "Coursera",
+    "url": "https://www.coursera.org/learn/python"
+  },
+  {
+    "id": 2,
+    "title": "Machine Learning Basics",
+    "provider": "edX",
+    "url": "https://www.edx.org/course/machine-learning-basics"
+  },
+  {
+    "id": 3,
+    "title": "Web Development Bootcamp",
+    "provider": "freeCodeCamp",
+    "url": "https://www.freecodecamp.org/learn"
+  }
+
+]

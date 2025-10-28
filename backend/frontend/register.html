@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register - Get2IT</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="auth-container">
+  <h2>Signup</h2>
+  <form id="registerForm">
+    <input type="text" placeholder="Full Name" id="name" required>
+    <input type="email" placeholder="Email" id="email" required>
+    <input type="password" placeholder="Password" id="password" required>
+    <button type="submit">Signup</button>
+  </form>
+  
+  <p>Or signup with Google</p>
+  <button id="googleSignup">Signup with Google</button>
+  
+  <p>Already have an account? <a href="login.html">Login</a></p>
+  <p id="msg"></p>
+</div>
+
+<script>
+document.getElementById('registerForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  const res = await fetch('/api/auth/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, email, password })
+  });
+
+  const data = await res.json();
+  document.getElementById('msg').textContent = data.message || data.error || "Something went wrong";
+
+  if (res.ok) {
+    window.location.href = '/dashboard.html';
+  }
+});
+
+// Google Signup
+document.getElementById('googleSignup').addEventListener('click', () => {
+  window.location.href = '/api/auth/google';
+});
+</script>
+</body>
+</html>

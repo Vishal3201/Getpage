@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "AICTE Summer Internship",
+    "provider": "Tech Institute",
+    "location": "Online",
+    "url": "https://techinstitute.edu.in/aicte-internship"
+  },
+  {
+    "id": 2,
+    "title": "AICTE Research Internship",
+    "provider": "National Engineering College",
+    "location": "Remote",
+    "url": "https://nec.ac.in/internships/aicte"
+  },
+  {
+    "id": 3,
+    "title": "AICTE Data Science Internship",
+    "provider": "Data Labs",
+    "location": "Online",
+    "url": "https://datalabs.in/aicte-internship"
+  }
+]

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Get2IT - Your Career Hub</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" href="https://i.ibb.co/QFL6PFys/logo.png">
+</head>
+<body>
+  <!-- Auth Icon -->
+
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="/index.html">
+          <img src="https://i.ibb.co/QFL6PFys/logo.png" alt="Get2IT Logo" style="width:45px; height:auto;">
+        </a>
+        <h1>Welcome to Get2IT</h1>
+      </div>
+      <nav>
+        <a href="/index.html">🏠 Home</a> |
+        <a href="/about.html">About</a> |
+        <a href="/contact.html">Contact</a> |
+        <a href="/disclaimer.html">Disclaimer</a> |
+        <a href="/privacy-policy.html">Privacy Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <section class="section">
+      <div class="section-header">
+        <h2>Your Career and Learning Hub</h2>
+      </div>
+
+      <div class="section-content">
+        <p class="bounce-left">Welcome to <strong>Get2IT</strong>, your one-stop platform for discovering the latest opportunities</p>
+        <p class="bounce-right">Explore our categories below to kickstart your career and learning journey!</p>
+
+        <!-- CATEGORY GRID -->
+        <div class="category-grid">
+          <!-- Jobs -->
+          <div class="category-item" id="latestJobsBox">
+            <a href="#" class="category-title">Latest Jobs</a>
+            <div id="latestJobsContainer" class="scroll-box"></div>
+          </div>
+
+          <!-- Internships -->
+          <div class="category-item" id="internshipsBox">
+            <a href="#" class="category-title">Internships</a>
+            <div id="internshipsContainer" class="scroll-box"></div>
+          </div>
+
+          <!-- Work From Home -->
+          <div class="category-item" id="wfhBox">
+            <a href="#" class="category-title">Work From Home</a>
+            <div id="wfhContainer" class="scroll-box"></div>
+          </div>
+
+          <!-- AICTE -->
+          <div class="category-item" id="aicteBox">
+            <a href="#" class="category-title">AICTE Internships</a>
+            <div id="aicteContainer" class="scroll-box"></div>
+          </div>
+
+          <!-- Free Certificates -->
+          <div class="category-item" id="freeCertificateBox">
+            <a href="#" class="category-title">Free Certificates</a>
+            <div id="freeCoursesContainer" class="scroll-box"></div>
+          </div>
+
+          <!-- Paid Internships -->
+          <div class="category-item" id="paidInternshipsBox">
+            <a href="#" class="category-title">Paid Internships</a>
+            <div id="paidInternshipsContainer" class="scroll-box"></div>
+          </div>
+        </div>
+
+        <!-- Ads -->
+        <div class="ad-section">
+          <iframe src="/adsense/ad-script.html" width="100%" height="250" frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Get2IT. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="/assets/js/auth.js"></script>
+  <script>
+     // ✅ Corrected port number
+    const backendBaseUrl = 'http://localhost:5005/api';
+
+    const categories = {
+      latestJobsContainer: 'jobs',
+      internshipsContainer: 'internships',
+      wfhContainer: 'wfh',
+      aicteContainer: 'aicte',
+      freeCoursesContainer: 'free-certificate',
+      paidInternshipsContainer: 'paid-internships'
+    };
+
+    async function loadCategory(containerId, endpoint) {
+      const container = document.getElementById(containerId);
+      try {
+        const res = await fetch(`${backendBaseUrl}/${endpoint}`);
+        const items = await res.json();
+        container.innerHTML = '';
+
+        if (!items || items.length === 0) {
+          container.innerHTML = '<p>No items available.</p>';
+          return;
+        }
+
+        items.forEach(item => {
+          const link = document.createElement('a');
+          link.href = item.url || "#";
+          link.className = 'job-link';
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = `${item.title || item.name} - ${item.company || item.provider || ''} (${item.location || item.type || ''})`;
+          container.appendChild(link);
+
+          const hr = document.createElement('hr');
+          container.appendChild(hr);
+        });
+
+      } catch (err) {
+        container.innerHTML = '<p>Unable to load items at this time.</p>';
+        console.error(`Error loading ${endpoint}:`, err);
+      }
+    }
+
+    for (const [containerId, endpoint] of Object.entries(categories)) {
+      loadCategory(containerId, endpoint);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest Work From Home Opportunities - Get2IT</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Latest Work From Home Opportunities</h1>
+      <nav>
+        <a href="/index.html">🏠 Home</a> |
+        <a href="/work-from-home/latest-wfh.html">Latest Work From Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="section-header">
+        <h2>All Latest Work From Home Opportunities</h2>
+      </div>
+      <div class="section-content" id="wfh-container">Loading work from home opportunities...</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2023 Get2IT. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const API_URL = "http://localhost:5000/api/work-from-home/latest-wfh";
+    const wfhContainer = document.getElementById("wfh-container");
+
+    async function loadWorkFromHome() {
+      try {
+        const res = await fetch(API_URL);
+        const wfhOpportunities = await res.json();
+        if (wfhOpportunities.length === 0) {
+          wfhContainer.innerHTML = "<p>No work from home opportunities available.</p>";
+          return;
+        }
+        wfhContainer.innerHTML = wfhOpportunities.map(opportunity => `
+          <div class="update-item">
+            <a href="${opportunity.link}" target="_blank" class="update-title">${opportunity.title}</a>
+            <div class="update-date">${opportunity.date}</div>
+            <p class="update-desc">${opportunity.description}</p>
+          </div>
+        `).join("");
+      } catch (err) {
+        wfhContainer.innerHTML = "<p>Error loading work from home opportunities.</p>";
+        console.error(err);
+      }
+    }
+
+    loadWorkFromHome();
+  </script>
+</body>
+</html>

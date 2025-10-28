@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Software Development Intern",
+    "company": "TCS",
+    "location": "Bangalore",
+    "url": "https://www.tcs.com/careers"
+  },
+  {
+    "id": 2,
+    "title": "Data Analyst Intern",
+    "company": "Infosys",
+    "location": "Hyderabad",
+    "url": "https://www.infosys.com/careers"
+  },
+  {
+    "id": 3,
+    "title": "AI/ML Research Intern",
+    "company": "Microsoft India",
+    "location": "Pune",
+    "url": "https://careers.microsoft.com"
+  },
+  {
+    "id": 4,
+    "title": "Full Stack Developer Intern",
+    "company": "Zoho",
+    "location": "Chennai",
+    "url": "https://www.zoho.com/careers.html"
+  },
+  {
+    "id": 5,
+    "title": "Cybersecurity Intern",
+    "company": "Wipro",
+    "location": "Bangalore",
+    "url": "https://careers.wipro.com"
+  },
+  {
+    "id": 6,
+    "title": "Cloud Engineer Intern",
+    "company": "Amazon India",
+    "location": "Hyderabad",
+    "url": "https://www.amazon.jobs/en"
+  },
+  {
+    "id": 7,
+    "title": "Frontend Developer Intern",
+    "company": "Freshworks",
+    "location": "Chennai",
+    "url": "https://www.freshworks.com/careers"
+  },
+  {
+    "id": 8,
+    "title": "Product Management Intern",
+    "company": "Adobe India",
+    "location": "Noida",
+    "url": "https://adobe.wd5.myworkdayjobs.com/adobe_careers"
+  },
+  {
+    "id": 9,
+    "title": "UI/UX Design Intern",
+    "company": "Flipkart",
+    "location": "Bangalore",
+    "url": "https://www.flipkartcareers.com"
+  },
+  {
+    "id": 10,
+    "title": "Blockchain Developer Intern",
+    "company": "Polygon Labs",
+    "location": "Remote",
+    "url": "https://polygon.technology/careers"
+  }
+]

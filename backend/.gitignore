@@ -1,0 +1,15 @@
+
+### Integration with Existing Files
+- **package.json**: Supports running `backend/server.js` with the defined scripts.
+- **requirements.txt**: Prepares for a Python backend if you choose to implement it.
+- **README.md**: Documents the setup process for both Node.js and potential Python backends.
+- **.env**: Used by `config.js` to set `db.uri`, `server.port`, and `jwt.secret`.
+
+### Setup and Run
+1. **Place Files**:
+ - Save `package.json`, `requirements.txt`, `README.md`, and `.env` in `C:\Users\HP\Desktop\webpage\`.
+
+2. **Install Node.js Dependencies**:
+ - In the project root, run:
+   ```bash
+   npm install
