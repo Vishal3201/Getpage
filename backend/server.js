@@ -12,7 +12,7 @@ const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
 const app = express();
-const port = 5005;
+const port = process.env.PORT || 5005;
 
 // ===== Middleware =====
 app.use(express.json());
@@ -35,7 +35,7 @@ app.use(
   session({
     name: 'session',
     keys: [process.env.SESSION_KEY || 'default_secret_key'],
-    maxAge: 24 * 60 * 60 * 1000, 
+    maxAge: 24 * 60 * 60 * 1000,
   })
 );
 
@@ -62,7 +62,7 @@ passport.use(
         let existingUser = await User.findOne({ googleId: profile.id });
         if (existingUser) return done(null, existingUser);
 
-        // ✅ FIXED: new User instead of new user
+        // ✅ FIXED: Correct User model
         const newUser = new User({
           googleId: profile.id,
           email: profile.emails[0].value,
@@ -78,7 +78,7 @@ passport.use(
   )
 );
 
-// ===== Auth Routes (with bcrypt) =====
+// ===== Signup Route =====
 app.post('/api/signup', async (req, res) => {
   try {
     const { email, password, name } = req.body;
@@ -89,7 +89,7 @@ app.post('/api/signup', async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // ✅ FIXED: new User instead of new user
+    // ✅ FIXED: Correct User model
     const newUser = new User({ email, password: hashedPassword, name });
     await newUser.save();
 
@@ -131,7 +131,7 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// ===== Google OAuth Routes =====
+// ===== Google OAuth =====
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 app.get(
@@ -147,9 +147,10 @@ app.get(
   }
 );
 
-// ===== Dynamic Jobs from JSON =====
+// ===== Jobs JSON API =====
 app.get("/api/jobs", (req, res) => {
   const jobsPath = path.join(__dirname, "jobs.json");
+
   fs.readFile(jobsPath, "utf8", (err, data) => {
     if (err) return res.status(500).json({ error: "Failed to load jobs" });
 
@@ -162,7 +163,7 @@ app.get("/api/jobs", (req, res) => {
   });
 });
 
-// ===== Other API Routes =====
+// ===== Other Routes =====
 app.use('/api/internships', require('./routes/internships'));
 app.use('/api/wfh', require('./routes/wfh'));
 app.use('/api/aicte', require('./routes/aicte'));
@@ -171,7 +172,7 @@ app.use('/api/free-certificate', require('./routes/free-certificate'));
 app.use('/api/results', require('./routes/results'));
 app.use('/api/auth', require('./routes/auth'));
 
-// ===== Serve Frontend =====
+// ===== Frontend =====
 app.use(express.static(path.join(__dirname, 'frontend')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
