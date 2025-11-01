@@ -28,7 +28,7 @@ mongoose
   .catch((err) => console.error("❌ MongoDB connection error:", err.message));
 
 // ===== User Model =====
-const user = require('./models/user');
+const User = require('./models/user');
 
 // ===== Cookie Session =====
 app.use(
