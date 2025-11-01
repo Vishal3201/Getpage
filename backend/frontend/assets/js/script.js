@@ -1,13 +1,15 @@
 console.log("script.js loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  // ✅ FIXED: Removed localhost — added relative API paths for Render
   const categories = {
-    latestJobsContainer: 'http://localhost:5005/api/jobs',
-    internshipsContainer: 'http://localhost:5005/api/internships',
-    wfhContainer: 'http://localhost:5005/api/wfh',
-    aicteContainer: 'http://localhost:5005/api/aicte',
-    freeCoursesContainer: 'http://localhost:5005/api/free-certificate',
-    paidInternshipsContainer: 'http://localhost:5005/api/paid-internships'
+    latestJobsContainer: '/api/jobs',
+    internshipsContainer: '/api/internships',
+    wfhContainer: '/api/wfh',
+    aicteContainer: '/api/aicte',
+    freeCoursesContainer: '/api/free-certificate',
+    paidInternshipsContainer: '/api/paid-internships'
   };
 
   const INITIAL_COUNT = 10; 
@@ -18,11 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     container.innerHTML = '';
     items.slice(0, count).forEach(item => {
       const title = item.title || item.name || "Untitled";
-      let link = item.link || item.url || "#";  // ✅ url bhi support kare
+      let link = item.link || item.url || "#";
       const company = item.company || item.provider || "";
       const location = item.location || item.type || "";
 
-      // ✅ Link check (sirf http/https allow)
       if (link && !/^https?:\/\//i.test(link)) {
         console.warn("Invalid link found, skipping:", link);
         link = "#";
@@ -35,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
       a.className = "job-link";
       a.textContent = `${title} - ${company} (${location})`;
 
-      // Agar link invalid hai to disable kar do
       if (link === "#") {
         a.style.pointerEvents = "none";
         a.style.opacity = "0.6";
@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
       allData[containerId] = data; 
       renderItems(container, data, INITIAL_COUNT);
 
-      // View More button
       const btn = document.querySelector(`.view-more-btn[data-container="${containerId}"]`);
       if (btn) {
         btn.addEventListener('click', () => {
@@ -78,17 +77,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+// ✅ FIXED: DO NOT use localhost — use relative path
 const authIcon = document.getElementById('authIcon');
-if(authIcon){
+if (authIcon) {
   fetch('/api/auth/me')
-    .then(res=>res.json())
-    .then(user=>{
-      if(user){
-        if(user.googleId && user.username) {
+    .then(res => res.json())
+    .then(user => {
+      if (user) {
+        if (user.googleId && user.username) {
           authIcon.textContent = user.username.charAt(0).toUpperCase();
-        } else if(user.username){
+        } else if (user.username) {
           authIcon.textContent = user.username.charAt(0).toUpperCase();
         }
-      } else window.location.href='/login.html';
+      } else {
+        window.location.href = '/login.html';
+      }
+    })
+    .catch(() => {
+      window.location.href = '/login.html';
     });
 }
