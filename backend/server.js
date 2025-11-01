@@ -8,7 +8,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const session = require('cookie-session');
 const fs = require('fs');
-const bcrypt = require('bcryptjs'); // ✅ Secure password hashing
+const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
 const app = express();
@@ -35,7 +35,7 @@ app.use(
   session({
     name: 'session',
     keys: [process.env.SESSION_KEY || 'default_secret_key'],
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    maxAge: 24 * 60 * 60 * 1000, 
   })
 );
 
@@ -62,11 +62,13 @@ passport.use(
         let existingUser = await User.findOne({ googleId: profile.id });
         if (existingUser) return done(null, existingUser);
 
-        const newUser = new user({
+        // ✅ FIXED: new User instead of new user
+        const newUser = new User({
           googleId: profile.id,
           email: profile.emails[0].value,
           name: profile.displayName,
         });
+
         await newUser.save();
         done(null, newUser);
       } catch (err) {
@@ -83,12 +85,12 @@ app.post('/api/signup', async (req, res) => {
 
     const existingUser = await User.findOne({ email });
     if (existingUser)
-      return res.status(400).json({ message: "user already exists" });
+      return res.status(400).json({ message: "User already exists" });
 
-    // 🔒 Hash password before saving
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = new user({ email, password: hashedPassword, name });
+    // ✅ FIXED: new User instead of new user
+    const newUser = new User({ email, password: hashedPassword, name });
     await newUser.save();
 
     const token = jwt.sign(
@@ -104,6 +106,7 @@ app.post('/api/signup', async (req, res) => {
   }
 });
 
+// ===== Login Route =====
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -111,7 +114,6 @@ app.post('/api/login', async (req, res) => {
     if (!user)
       return res.status(400).json({ message: "Invalid email or password" });
 
-    // ✅ Compare plain password with hashed password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)
       return res.status(400).json({ message: "Invalid email or password" });
@@ -141,11 +143,11 @@ app.get(
       process.env.JWT_SECRET,
       { expiresIn: '1d' }
     );
-    res.redirect(`http://localhost:5005/dashboard.html?token=${token}`);
+    res.redirect(`/dashboard.html?token=${token}`);
   }
 );
 
-// ===== Dynamic Jobs from JSON File =====
+// ===== Dynamic Jobs from JSON =====
 app.get("/api/jobs", (req, res) => {
   const jobsPath = path.join(__dirname, "jobs.json");
   fs.readFile(jobsPath, "utf8", (err, data) => {
