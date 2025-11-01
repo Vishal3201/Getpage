@@ -14,11 +14,12 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5005;
 
-// ===== Middleware =====
-app.use(express.json());
+// ========== MIDDLEWARE ==========
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cors());
 
-// ===== MongoDB Connection =====
+// ========== MONGO DB ==========
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -27,10 +28,10 @@ mongoose
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err.message));
 
-// ===== User Model =====
+// ========== USER MODEL ==========
 const User = require('./models/user');
 
-// ===== Cookie Session =====
+// ========== COOKIE SESSION ==========
 app.use(
   session({
     name: 'session',
@@ -39,7 +40,7 @@ app.use(
   })
 );
 
-// ===== Passport Config =====
+// ========== PASSPORT ==========
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -62,7 +63,6 @@ passport.use(
         let existingUser = await User.findOne({ googleId: profile.id });
         if (existingUser) return done(null, existingUser);
 
-        // ✅ FIXED: Correct User model
         const newUser = new User({
           googleId: profile.id,
           email: profile.emails[0].value,
@@ -78,7 +78,7 @@ passport.use(
   )
 );
 
-// ===== Signup Route =====
+// ========== SIGNUP ==========
 app.post('/api/signup', async (req, res) => {
   try {
     const { email, password, name } = req.body;
@@ -89,7 +89,6 @@ app.post('/api/signup', async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // ✅ FIXED: Correct User model
     const newUser = new User({ email, password: hashedPassword, name });
     await newUser.save();
 
@@ -106,7 +105,7 @@ app.post('/api/signup', async (req, res) => {
   }
 });
 
-// ===== Login Route =====
+// ========== LOGIN ==========
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -131,7 +130,7 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// ===== Google OAuth =====
+// ========== GOOGLE OAUTH ==========
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 app.get(
@@ -147,23 +146,31 @@ app.get(
   }
 );
 
-// ===== Jobs JSON API =====
+// ========== JOBS.JSON FIXED ROUTE ==========
 app.get("/api/jobs", (req, res) => {
   const jobsPath = path.join(__dirname, "jobs.json");
 
+  // ✅ Check file exists (avoids Render errors)
+  if (!fs.existsSync(jobsPath)) {
+    return res.status(404).json({
+      error: "jobs.json not found on server — MAKE SURE it is inside backend folder!"
+    });
+  }
+
   fs.readFile(jobsPath, "utf8", (err, data) => {
-    if (err) return res.status(500).json({ error: "Failed to load jobs" });
+    if (err)
+      return res.status(500).json({ error: "Failed to read jobs.json" });
 
     try {
       const jobs = JSON.parse(data);
       res.json(jobs);
     } catch (e) {
-      res.status(500).json({ error: "Invalid JSON in jobs.json" });
+      res.status(500).json({ error: "Invalid JSON format in jobs.json" });
     }
   });
 });
 
-// ===== Other Routes =====
+// ========== OTHER ROUTES ==========
 app.use('/api/internships', require('./routes/internships'));
 app.use('/api/wfh', require('./routes/wfh'));
 app.use('/api/aicte', require('./routes/aicte'));
@@ -172,13 +179,17 @@ app.use('/api/free-certificate', require('./routes/free-certificate'));
 app.use('/api/results', require('./routes/results'));
 app.use('/api/auth', require('./routes/auth'));
 
-// ===== Frontend =====
+// ========== FRONTEND STATIC ==========
 app.use(express.static(path.join(__dirname, 'frontend')));
+
+// ✅ Must be last route
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
-// ===== Start Server =====
-app.listen(port, () => console.log(`✅ Server running at http://localhost:${port}`));
+// ========== START SERVER ==========
+app.listen(port, () =>
+  console.log(`✅ Server running at http://localhost:${port}`)
+);
 
 module.exports = app;
