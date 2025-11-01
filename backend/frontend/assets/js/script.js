@@ -2,7 +2,7 @@ console.log("script.js loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ✅ FIXED: Removed localhost — added relative API paths for Render
+  // ✅ API routes
   const categories = {
     latestJobsContainer: '/api/jobs',
     internshipsContainer: '/api/internships',
@@ -12,10 +12,23 @@ document.addEventListener("DOMContentLoaded", () => {
     paidInternshipsContainer: '/api/paid-internships'
   };
 
-  const INITIAL_COUNT = 10; 
-  const allData = {}; 
+  const INITIAL_COUNT = 10;
+  const allData = {};
 
-  // Function to render items
+  // ✅ Auto-create container if missing in HTML
+  const getContainer = (id) => {
+    let c = document.getElementById(id);
+    if (!c) {
+      console.warn(`⚠️ Container #${id} missing in HTML. Creating it automatically.`);
+      c = document.createElement("div");
+      c.id = id;
+      c.innerHTML = `<p>Loading...</p>`;
+      document.body.appendChild(c);
+    }
+    return c;
+  };
+
+  // ✅ Render items function
   const renderItems = (container, items, count) => {
     container.innerHTML = '';
     items.slice(0, count).forEach(item => {
@@ -25,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const location = item.location || item.type || "";
 
       if (link && !/^https?:\/\//i.test(link)) {
-        console.warn("Invalid link found, skipping:", link);
+        console.warn("Invalid link found:", link);
         link = "#";
       }
 
@@ -45,57 +58,52 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Load category data
+  // ✅ Load each category
   Object.entries(categories).forEach(async ([containerId, apiUrl]) => {
-    const container = document.getElementById(containerId);
-    if (!container) return;
+    const container = getContainer(containerId);
 
     try {
-      container.innerHTML = '<p>Loading...</p>';
+      container.innerHTML = `<p>Loading...</p>`;
+
       const res = await fetch(apiUrl);
       const data = await res.json();
 
       if (!Array.isArray(data) || data.length === 0) {
-        container.innerHTML = '<p>No items available.</p>';
+        container.innerHTML = "<p>No items available.</p>";
         return;
       }
 
-      allData[containerId] = data; 
+      allData[containerId] = data;
       renderItems(container, data, INITIAL_COUNT);
 
+      // ✅ Add view more behavior
       const btn = document.querySelector(`.view-more-btn[data-container="${containerId}"]`);
       if (btn) {
-        btn.addEventListener('click', () => {
-          renderItems(container, allData[containerId], allData[containerId].length);
-          btn.style.display = 'none'; 
-        });
+        btn.onclick = () => {
+          renderItems(container, data, data.length);
+          btn.style.display = "none";
+        };
       }
 
     } catch (err) {
-      console.error(`Error loading ${containerId}:`, err);
-      container.innerHTML = '<p>Error loading items.</p>';
+      console.error(`❌ Error loading ${containerId}:`, err);
+      container.innerHTML = "<p>Error loading items.</p>";
     }
   });
 });
 
 
-// ✅ FIXED: DO NOT use localhost — use relative path
+// ✅ Authentication Icon
 const authIcon = document.getElementById('authIcon');
 if (authIcon) {
   fetch('/api/auth/me')
     .then(res => res.json())
     .then(user => {
-      if (user) {
-        if (user.googleId && user.username) {
-          authIcon.textContent = user.username.charAt(0).toUpperCase();
-        } else if (user.username) {
-          authIcon.textContent = user.username.charAt(0).toUpperCase();
-        }
-      } else {
-        window.location.href = '/login.html';
+      if (user && user.username) {
+        authIcon.textContent = user.username.charAt(0).toUpperCase();
       }
     })
     .catch(() => {
-      window.location.href = '/login.html';
+      console.warn("Auth check failed.");
     });
 }
