@@ -28,7 +28,7 @@ mongoose
   .catch((err) => console.error("❌ MongoDB connection error:", err.message));
 
 // ===== User Model =====
-const User = require('./models/User');
+const user = require('./models/user');
 
 // ===== Cookie Session =====
 app.use(
@@ -62,7 +62,7 @@ passport.use(
         let existingUser = await User.findOne({ googleId: profile.id });
         if (existingUser) return done(null, existingUser);
 
-        const newUser = new User({
+        const newUser = new user({
           googleId: profile.id,
           email: profile.emails[0].value,
           name: profile.displayName,
@@ -83,12 +83,12 @@ app.post('/api/signup', async (req, res) => {
 
     const existingUser = await User.findOne({ email });
     if (existingUser)
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(400).json({ message: "user already exists" });
 
     // 🔒 Hash password before saving
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = new User({ email, password: hashedPassword, name });
+    const newUser = new user({ email, password: hashedPassword, name });
     await newUser.save();
 
     const token = jwt.sign(
