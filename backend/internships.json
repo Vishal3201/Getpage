@@ -1,35 +1,72 @@
 [
   {
-    "id": 1,
-    "title": "Frontend Developer Internship",
-    "provider": "XYZ Company",
-    "type": "Remote",
-    "url": "https://xyz.com/internship/frontend"
+    "title": "NIELIT Aurangabad (MeitY) – Chip to Startup (C2S) Internship 2025",
+    "organization": "National Institute of Electronics & Information Technology (NIELIT)",
+    "duration": "6 months",
+    "eligibility": "B.Tech/B.E/B.Sc students",
+    "link": "https://www.nielit.gov.in/aurangabad/sites/default/files/Aurangabad/internship%20for%20btech-mtech%20under%20meity-c2s%20project_2025.pdf"
   },
   {
-    "id": 2,
-    "title": "Data Science Internship",
-    "provider": "ABC Labs",
-    "type": "Onsite",
-    "url": "https://abc.com/internship/ds"
+    "title": "National e-Governance Division (NeGD) / MeitY – Technical Internship Programme 2025",
+    "organization": "National e-Governance Division (NeGD)",
+    "duration": "Varies",
+    "eligibility": "Engineering graduates or final-year students",
+    "link": "https://negd.gov.in/wp-content/uploads/2025/05/Announcement-Technical-Internship-Website.pdf"
   },
   {
-    "id": 1,
-    "title": "Introduction to Python",
-    "provider": "Coursera",
-    "url": "https://www.coursera.org/learn/python"
+    "title": "AICTE Virtual Internship Portal 2025",
+    "organization": "All India Council for Technical Education (AICTE)",
+    "duration": "Flexible / Remote",
+    "eligibility": "B.Tech/B.E students in IT/CS streams",
+    "link": "https://internship.aicte-india.org/"
   },
   {
-    "id": 2,
-    "title": "Machine Learning Basics",
-    "provider": "edX",
-    "url": "https://www.edx.org/course/machine-learning-basics"
+    "title": "Pregrad – AICTE Supported Internships 2025",
+    "organization": "Pregrad (AICTE Partner)",
+    "duration": "Varies",
+    "eligibility": "Students pursuing B.Tech / BE",
+    "link": "https://blog.pregrad.in/7-latest-aicte-internships-opportunities-2025/"
   },
   {
-    "id": 3,
-    "title": "Web Development Bootcamp",
-    "provider": "freeCodeCamp",
-    "url": "https://www.freecodecamp.org/learn"
+    "title": "Tata Consultancy Services (TCS) – Engineering & Research Internship",
+    "organization": "Tata Consultancy Services",
+    "duration": "2–6 months",
+    "eligibility": "Engineering students",
+    "link": "https://www.tcs.com/careers/india/internship"
+  },
+  {
+    "title": "Infosys – InStep Global Internship",
+    "organization": "Infosys Ltd",
+    "duration": "8–12 weeks",
+    "eligibility": "Engineering / Management / Design students",
+    "link": "https://www.infosys.com/instep.html"
+  },
+  {
+    "title": "Wipro – STEP / Summer Internship Program",
+    "organization": "Wipro Technologies",
+    "duration": "8 weeks",
+    "eligibility": "Engineering students",
+    "link": "https://careers.wipro.com/campus-recruitment"
+  },
+  {
+    "title": "Google India – Software Engineering Internship 2025",
+    "organization": "Google India",
+    "duration": "May–August 2025",
+    "eligibility": "Students pursuing B.Tech / M.Tech in CS or related field",
+    "link": "https://careers.google.com/students/"
+  },
+  {
+    "title": "Microsoft India – Engineering Internship 2025",
+    "organization": "Microsoft India Pvt Ltd",
+    "duration": "12 weeks",
+    "eligibility": "B.Tech / M.Tech students",
+    "link": "https://careers.microsoft.com/v2/global/en/locations/india.html"
+  },
+  {
+    "title": "Amazon India – SDE / Data Engineering Internship",
+    "organization": "Amazon Development Centre India",
+    "duration": "12–16 weeks",
+    "eligibility": "Final-year engineering students",
+    "link": "https://www.amazon.jobs/en/teams/internships-for-students"
   }
-
 ]
