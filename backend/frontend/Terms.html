@@ -5,49 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms and Conditions | Get2IT</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: linear-gradient(135deg, #0a74da, #001f3f);
-      color: #fff;
       min-height: 100vh;
+      background: linear-gradient(135deg, #0a74da, #001f3f);
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 40px 20px;
+      justify-content: flex-start;
+      color: #fff;
+      padding: 60px 20px;
+      position: relative;
       overflow-x: hidden;
     }
 
+    /* Animated subtle background pattern */
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 1%, transparent 1%) repeat;
+      background-size: 25px 25px;
+      animation: moveBackground 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveBackground {
+      0% { transform: translate(0,0); }
+      100% { transform: translate(50px,50px); }
+    }
+
     header {
-      margin-bottom: 30px;
+      text-align: center;
+      margin-bottom: 40px;
+      z-index: 1;
       animation: fadeDown 1s ease forwards;
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       color: #ffd166;
       margin-bottom: 10px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
     }
 
     header p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       opacity: 0.9;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
     }
 
     .terms-box {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 40px 30px;
-      max-width: 850px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 25px;
+      padding: 50px 40px;
+      max-width: 900px;
       width: 100%;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      z-index: 1;
+      backdrop-filter: blur(10px);
       animation: slideUp 1.5s ease forwards;
       text-align: left;
     }
@@ -55,31 +82,58 @@
     .terms-box h2 {
       color: #ffd166;
       margin-bottom: 15px;
-      font-size: 1.8rem;
+      font-size: 2rem;
+      position: relative;
+    }
+
+    .terms-box h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #ffd166;
+      border-radius: 2px;
     }
 
     .terms-box p {
-      margin-bottom: 15px;
-      line-height: 1.7;
-      font-size: 1rem;
+      margin-bottom: 20px;
+      line-height: 1.8;
+      font-size: 1.05rem;
       opacity: 0.95;
     }
 
+    .terms-box a {
+      color: #ffd166;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .terms-box a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
     footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
+      margin-top: 60px;
+      font-size: 0.95rem;
       opacity: 0.8;
+      text-align: center;
+      z-index: 1;
       animation: fadeUp 1s ease forwards;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
     }
 
     /* Animations */
     @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
+      from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes slideUp {
-      from { opacity: 0; transform: translateY(50px); }
+      from { opacity: 0; transform: translateY(60px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -88,12 +142,16 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       .terms-box {
-        padding: 30px 20px;
+        padding: 35px 25px;
+      }
+      .terms-box h2 {
+        font-size: 1.6rem;
       }
     }
   </style>
@@ -145,10 +203,12 @@
     <p>
       For any questions or concerns regarding these Terms, please contact us:
       <br />
-      📧 <a href="mailto:vishalsaroj3201@gmail.com" style="color:#ffd166; text-decoration:none;">vishalsaroj3201@gmail.com</a>
+      📧 <a href="mailto:vishalsaroj3201@gmail.com">vishalsaroj3201@gmail.com</a>
       <br />
-      📞 <a href="tel:9555253066" style="color:#ffd166; text-decoration:none;">+91 95552 53066</a>
+      📞 <a href="tel:9555253066">+91 95552 53066</a>
     </p>
   </div>
 
-  <footer>© 2025 Get2IT | Terms &
+  <footer>© 2025 Get2IT | Terms & Conditions | Designed by Vishal Saroj</footer>
+</body>
+</html>
