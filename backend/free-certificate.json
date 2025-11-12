@@ -1,39 +1,62 @@
 [
   {
-    "id": 1,
+    "title": "Fundamentals of Digital Marketing",
+    "provider": "Google Digital Garage",
+    "domain": "Digital Marketing",
+    "link": "https://www.google.com/digitalgarage"
+  },
+  {
+    "title": "AI for Everyone",
+    "provider": "Coursera (Andrew Ng)",
+    "domain": "Artificial Intelligence",
+    "link": "https://www.coursera.org/learn/ai-for-everyone"
+  },
+  {
+    "title": "Free Government Courses via SWAYAM / NPTEL",
+    "provider": "SWAYAM / NPTEL",
+    "domain": "Various (Engineering / IT / Management)",
+    "link": "https://swayam.gov.in"
+  },
+  {
     "title": "Introduction to Python",
-    "provider": "Coursera",
-    "url": "https://www.coursera.org/learn/python"
+    "provider": "NPTEL / Government",
+    "domain": "Programming / IT Skills",
+    "link": "https://nptel.ac.in/"
   },
   {
-    "id": 2,
-    "title": "Machine Learning Basics",
-    "provider": "edX",
-    "url": "https://www.edx.org/course/machine-learning-basics"
+    "title": "Digital Marketing / Lead Generation / Social Media Strategy",
+    "provider": "HubSpot Academy",
+    "domain": "Digital Marketing",
+    "link": "https://academy.hubspot.com/"
   },
   {
-    "id": 3,
-    "title": "Web Development Bootcamp",
-    "provider": "freeCodeCamp",
-    "url": "https://www.freecodecamp.org/learn"
+    "title": "Cloud Computing / Azure Fundamentals",
+    "provider": "Microsoft Learn",
+    "domain": "Cloud Computing",
+    "link": "https://learn.microsoft.com/en-us/training/azure/"
   },
   {
-    "id": 1,
-    "title": "Introduction to Python",
-    "provider": "Coursera",
-    "url": "https://www.coursera.org/learn/python"
+    "title": "Cybersecurity Basics",
+    "provider": "Cisco Networking Academy",
+    "domain": "Cybersecurity",
+    "link": "https://www.netacad.com/courses/cybersecurity"
   },
   {
-    "id": 2,
-    "title": "Machine Learning Basics",
-    "provider": "edX",
-    "url": "https://www.edx.org/course/machine-learning-basics"
+    "title": "Full-Stack Python / Web Development",
+    "provider": "NASSCOM & Government Collaboration",
+    "domain": "Web Development / Fullstack",
+    "link": "https://www.coursejoin.com/free-online-courses/indian-goverment-nasscom-free-fullstack-python-certification-course-2025-free-certificate-enroll-now/"
   },
   {
-    "id": 3,
-    "title": "Web Development Bootcamp",
-    "provider": "freeCodeCamp",
-    "url": "https://www.freecodecamp.org/learn"
+    "title": "Entrepreneurship & IP Strategy",
+    "provider": "SWAYAM / Government portals",
+    "domain": "Entrepreneurship / IP",
+    "link": "https://in.indeed.com/career-advice/career-development/online-certificate-courses-in-india-by-government"
+  },
+  {
+    "title": "Soft Skills / Workplace Skills / Communication",
+    "provider": "Govt / NPTEL / SWAYAM",
+    "domain": "Soft Skills",
+    "link": "https://careerskillup.in/free-government-certification-courses-india-2025/"
   }
 ]
-
