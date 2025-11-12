@@ -1,78 +1,42 @@
 [
-     {
-    "title": "vishal",
-    "company": "XYZ Corp",
-    "location": "Delhi",
-    "url": "https://www.xyzcorp.com/careers/software-engineer"
-  },
-   
-  {
-    "title": "Software Enginee",
-    "company": "XYZ Corp",
-    "location": "Delhi",
-    "url": "https://www.xyzcorp.com/careers/software-engineer"
-  },
-  {
-    "title": "Frontend Developer",
-    "company": "TechSoft",
-    "location": "Bangalore",
-    "url": "https://www.techsoft.in/jobs/frontend-developer"
-  },
-  {
-    "title": "Backend Developer",
-    "company": "Innovatech",
-    "location": "Hyderabad",
-    "url": "https://www.innovatech.com/careers/backend-developer"
-  },
-  {
-    "title": "Data Analyst",
-    "company": "DataWorks",
-    "location": "Pune",
-    "url": "https://www.dataworks.com/jobs/data-analyst"
-  },
-  {
-    "title": "AI/ML Engineer",
-    "company": "AI Solutions",
-    "location": "Noida",
-    "url": "https://www.aisolutions.ai/careers/ml-engineer"
-  },
-  {
-    "title": "DevOps Engineer",
-    "company": "CloudNet",
-    "location": "Chennai",
-    "url": "https://www.cloudnet.com/careers/devops"
-  },
-  {
-    "title": "Cybersecurity Analyst",
-    "company": "SecureTech",
-    "location": "Gurgaon",
-    "url": "https://www.securetech.in/jobs/cybersecurity-analyst"
-  },
-  {
-    "title": "Full Stack Developer",
-    "company": "NextGen IT",
-    "location": "Remote",
-    "url": "https://www.nextgenit.com/careers/fullstack"
-  },
-  {
-    "title": "Project Manager",
-    "company": "BuildSoft",
-    "location": "Kolkata",
-    "url": "https://www.buildsoft.com/jobs/project-manager"
-  },
-  {
-    "title": "UI/UX Designer",
-    "company": "DesignPro",
-    "location": "Mumbai",
-    "url": "https://www.designpro.in/careers/ui-ux"
-  },
-  {
-     "title": "vishal",
-    "company": "DesignPro",
-    "location": "Mumbai",
-    "url": "https://www.designpro.in/careers/ui-ux"
-  }
-
-  
-
+    {
+        "company": "Tata Consultancy Services (TCS)",
+        "url": "https://www.tcs.com/careers/india"
+    },
+    {
+        "company": "HCL Technologies (HCLTech)",
+        "url": "https://www.hcltech.com/careers/careers-in-india"
+    },
+    {
+        "company": "Oracle Corporation",
+        "url": "https://www.oracle.com/in/careers/"
+    },
+    {
+        "company": "Microsoft Corporation India",
+        "url": "https://careers.microsoft.com/v2/global/en/locations/india.html"
+    },
+    {
+        "company": "Salesforce India",
+        "url": "https://www.salesforce.com/company/careers/locations/india/"
+    },
+    {
+        "company": "Mphasis",
+        "url": "https://careers.mphasis.com/"
+    },
+    {
+        "company": "Apple Inc. India",
+        "url": "https://jobs.apple.com/en-in/search?location=india-INDC"
+    },
+    {
+        "company": "Wipro Limited",
+        "url": "https://careers.wipro.com/"
+    },
+    {
+        "company": "Accenture India",
+        "url": "https://www.accenture.com/in-en/careers"
+    },
+    {
+        "company": "Tech Mahindra",
+        "url": "https://careers.techmahindra.com/"
+    }
 ]
