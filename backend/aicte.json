@@ -1,23 +1,38 @@
 [
   {
-    "id": 1,
-    "title": "AICTE Summer Internship",
-    "provider": "Tech Institute",
-    "location": "Online",
-    "url": "https://techinstitute.edu.in/aicte-internship"
+    "title": "Shell – AICTE Virtual Internship 2025 (AI & Green Tech)",
+    "organization": "Shell",
+    "description": "AI & Green Technology, 3000 seats, Pan India",
+    "link": "https://www.nielit.gov.in/aurangabad/sites/default/files/Aurangabad/internship%20for%20btech-mtech%20under%20meity-c2s%20project_2025.pdf"
   },
   {
-    "id": 2,
-    "title": "AICTE Research Internship",
-    "provider": "National Engineering College",
-    "location": "Remote",
-    "url": "https://nec.ac.in/internships/aicte"
+    "title": "Cisco Systems – AICTE Virtual Internship Program 2025",
+    "organization": "Cisco Systems",
+    "description": "Cybersecurity and Networking internships, remote, Pan India",
+    "link": "https://internship.aicte-india.org/"
   },
   {
-    "id": 3,
-    "title": "AICTE Data Science Internship",
-    "provider": "Data Labs",
-    "location": "Online",
-    "url": "https://datalabs.in/aicte-internship"
+    "title": "General AICTE Virtual Internship Opportunities 2025",
+    "organization": "AICTE",
+    "description": "Pan India remote internships across tech domains",
+    "link": "https://internship.aicte-india.org/"
+  },
+  {
+    "title": "AICTE Online Internship 2025",
+    "organization": "AICTE",
+    "description": "Multiple tracks: cybersecurity, tech, digital skills",
+    "link": "https://www.buddy4study.com/article/aicte-online-internship"
+  },
+  {
+    "title": "AICTE Internship Mandatory Guidelines 2025",
+    "organization": "AICTE",
+    "description": "Mandatory guidelines for engineering students",
+    "link": "https://www.sundhapolymers.in/aicte-internship-guidelines-2025-mandatory/"
+  },
+  {
+    "title": "AICTE Internship Portal Listings",
+    "organization": "AICTE",
+    "description": "Free & paid internships across India",
+    "link": "https://m.economictimes.com/news/new-updates/aicte-is-offering-1-lakh-free-and-paid-internships-for-techies-in-top-companies-check-how-to-apply/articleshow/124778401.cms"
   }
 ]
