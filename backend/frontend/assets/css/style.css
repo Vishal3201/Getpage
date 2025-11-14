@@ -62,7 +62,7 @@ body { font-family: Arial,sans-serif; background:#f4f4f4; color:#333; line-heigh
 
 /* Scroll Box */
 .scroll-box { 
-  max-height:300px; 
+  max-height:600px; 
   overflow-y:auto; 
   padding-right:5px; 
   border:1px solid #ddd;
