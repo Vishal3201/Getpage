@@ -1,40 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://get2it.onrender.com/</loc>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <loc>https://getpage-1.onrender.com/</loc>
+    <priority>1.00</priority>
   </url>
 
   <url>
-    <loc>https://get2it.onrender.com/about.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://getpage-1.onrender.com/about</loc>
+    <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://get2it.onrender.com/contact.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://getpage-1.onrender.com/contact</loc>
+    <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://get2it.onrender.com/privacy-policy.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://getpage-1.onrender.com/privacy-policy</loc>
+    <priority>0.70</priority>
   </url>
 
   <url>
-    <loc>https://get2it.onrender.com/disclaimer.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://get2it.onrender.com/terms.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://getpage-1.onrender.com/disclaimer</loc>
+    <priority>0.70</priority>
   </url>
 
 </urlset>
