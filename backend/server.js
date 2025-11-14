@@ -178,10 +178,9 @@ app.use('/api/free-certificate', require('./routes/free-certificate'));
 app.use('/api/results', require('./routes/results'));
 app.use('/api/auth', require('./routes/auth'));
 
-
 // ========== SITEMAP ROUTE ==========
 app.get('/sitemap.xml', (req, res) => {
-  const sitemapPath = path.join(__dirname, 'frontend', 'sitemap.xml');
+  const sitemapPath = path.join(__dirname, 'frontend', 'seo', 'sitemap.xml');
 
   if (!fs.existsSync(sitemapPath)) {
     return res.status(404).send("Sitemap not found");
@@ -193,7 +192,7 @@ app.get('/sitemap.xml', (req, res) => {
 
 // ========== ROBOTS.TXT ROUTE ==========
 app.get('/robots.txt', (req, res) => {
-  const robotsPath = path.join(__dirname, 'frontend', 'robots.txt');
+  const robotsPath = path.join(__dirname, 'frontend', 'seo', 'robots.txt');
 
   if (!fs.existsSync(robotsPath)) {
     return res.status(404).send("robots.txt not found");
