@@ -150,7 +150,6 @@ app.get(
 app.get("/api/jobs", (req, res) => {
   const jobsPath = path.join(__dirname, "jobs.json");
 
-  // ✅ Check file exists (avoids Render errors)
   if (!fs.existsSync(jobsPath)) {
     return res.status(404).json({
       error: "jobs.json not found on server — MAKE SURE it is inside backend folder!"
@@ -179,10 +178,30 @@ app.use('/api/free-certificate', require('./routes/free-certificate'));
 app.use('/api/results', require('./routes/results'));
 app.use('/api/auth', require('./routes/auth'));
 
+// ========================================================
+// ⭐⭐⭐ FIXED SITEMAP + ROBOTS ROUTES (Google friendly) ⭐⭐⭐
+// ========================================================
+
+// Serve sitemap.xml (must be XML, not HTML)
+app.get('/sitemap.xml', (req, res) => {
+  const sitemapPath = path.join(__dirname, 'frontend', 'seo', 'sitemap.xml');
+  res.header("Content-Type", "application/xml");
+  res.sendFile(sitemapPath);
+});
+
+// Serve robots.txt
+app.get('/robots.txt', (req, res) => {
+  const robotsPath = path.join(__dirname, 'frontend', 'seo', 'robots.txt');
+  res.header("Content-Type", "text/plain");
+  res.sendFile(robotsPath);
+});
+
+// ========================================================
+
 // ========== FRONTEND STATIC ==========
 app.use(express.static(path.join(__dirname, 'frontend')));
 
-// ✅ Must be last route
+// ========== MUST BE LAST ROUTE ==========
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
