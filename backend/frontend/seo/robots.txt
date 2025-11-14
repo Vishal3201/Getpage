@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://get2it.onrender.com/sitemap.xml
+sitemap: https://getpage-1.onrender.com/sitemap.xml
