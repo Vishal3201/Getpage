@@ -1,203 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Disclaimer | Get2IT</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disclaimer | Getpage</title>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #0a74da, #001f3f);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      color: #fff;
-      overflow-x: hidden;
-      padding: 60px 20px;
-      position: relative;
-    }
-
-    /* Background particles animation */
-    body::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.05) 1%, transparent 1%) repeat;
-      background-size: 20px 20px;
-      animation: moveBackground 60s linear infinite;
-      z-index: 0;
-    }
-
-    @keyframes moveBackground {
-      0% { transform: translate(0,0); }
-      100% { transform: translate(50px,50px); }
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-      z-index: 1;
-      animation: fadeDown 1s ease forwards;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      color: #ffd166;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
-    }
-
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-    }
-
-    .disclaimer-box {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 25px;
-      padding: 50px 40px;
-      max-width: 900px;
-      width: 100%;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      z-index: 1;
-      backdrop-filter: blur(10px);
-      animation: slideUp 1.5s ease forwards;
-    }
-
-    .disclaimer-box h2 {
-      color: #ffd166;
-      margin-bottom: 15px;
-      font-size: 2rem;
-      position: relative;
-    }
-
-    .disclaimer-box h2::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: #ffd166;
-      border-radius: 2px;
-    }
-
-    .disclaimer-box p {
-      margin-bottom: 20px;
-      line-height: 1.8;
-      font-size: 1.05rem;
-      opacity: 0.95;
-    }
-
-    .disclaimer-box a {
-      color: #ffd166;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .disclaimer-box a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-
-    footer {
-      margin-top: 60px;
-      font-size: 0.95rem;
-      opacity: 0.8;
-      text-align: center;
-      z-index: 1;
-      animation: fadeUp 1s ease forwards;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-    }
-
-    /* Animations */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(60px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-      .disclaimer-box {
-        padding: 35px 25px;
-      }
-      .disclaimer-box h2 {
-        font-size: 1.6rem;
-      }
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
-<body>
-  <header>
-    <h1>Disclaimer</h1>
-    <p>Transparency and honesty are the core values of Get2IT.</p>
+
+<body class="bg-gray-50">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-2xl font-bold text-indigo-600">Getpage</h1>
+      <nav class="space-x-6">
+        <a href="/" class="text-gray-700 hover:text-indigo-600">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-indigo-600">About</a>
+        <a href="disclaimer.html" class="text-indigo-600 font-semibold">Disclaimer</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="disclaimer-box">
-    <h2>General Information</h2>
-    <p>
-      The information provided by <strong>Get2IT</strong> on this website is for general informational purposes only. 
-      All information is provided in good faith; however, we make no representation or warranty of any kind, 
-      express or implied, regarding the accuracy, adequacy, validity, reliability, or completeness of any information.
-    </p>
+  <section class="container mx-auto px-4 mt-12 max-w-4xl">
+    <h2 class="text-4xl font-bold text-center text-indigo-600 mb-10" data-aos="fade-up">
+      Disclaimer
+    </h2>
 
-    <h2>External Links Disclaimer</h2>
-    <p>
-      This website may contain links to other websites or content belonging to or originating from third parties. 
-      Such external links are not investigated, monitored, or checked for accuracy by us. 
-      We do not guarantee or endorse the reliability of any information offered by third-party websites.
-    </p>
+    <div class="bg-white shadow-md p-8 rounded-xl leading-relaxed space-y-6" data-aos="fade-up">
 
-    <h2>Professional Disclaimer</h2>
-    <p>
-      The site cannot and does not contain professional advice. The information is provided for general informational 
-      and educational purposes only and is not a substitute for professional advice. 
-      Accordingly, before taking any actions based upon such information, we encourage you to consult with the appropriate professionals.
-    </p>
+      <p>
+        All job updates, news, and educational information on <strong>Getpage</strong> are for educational & informational purposes only.
+      </p>
 
-    <h2>Consent</h2>
-    <p>
-      By using our website, you hereby consent to our disclaimer and agree to its terms.
-    </p>
+      <p>
+        While we verify content from official sources, we do not guarantee 100% accuracy.
+      </p>
 
-    <h2>Contact Us</h2>
-    <p>
-      If you have any questions about this disclaimer, you can contact us:
-      <br />
-      📧 <a href="mailto:vishalsaroj3201@gmail.com">vishalsaroj3201@gmail.com</a>
-      <br />
-      📞 <a href="tel:9555253066">+91 95552 53066</a>
-    </p>
-  </div>
+      <p>
+        Users must check official websites before taking any action based on the information provided here.
+      </p>
 
-  <footer>© 2025 Get2IT | Designed by Vishal Saroj</footer>
+      <p class="font-semibold">
+        Getpage is not responsible for any losses or misunderstandings caused by the use of this website.
+      </p>
+
+    </div>
+  </section>
+
+  <footer class="mt-16 bg-indigo-600 text-white py-6">
+    <p class="text-center">© 2025 Getpage — All Rights Reserved</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
 </body>
 </html>
