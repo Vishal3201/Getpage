@@ -146,14 +146,13 @@ app.get(
   }
 );
 
-// ========== JOBS.JSON FIXED ROUTE ==========
+// ========== JOBS.JSON ROUTE ==========
 app.get("/api/jobs", (req, res) => {
   const jobsPath = path.join(__dirname, "jobs.json");
 
-  // ✅ Check file exists (avoids Render errors)
   if (!fs.existsSync(jobsPath)) {
     return res.status(404).json({
-      error: "jobs.json not found on server — MAKE SURE it is inside backend folder!"
+      error: "jobs.json not found — make sure it's inside backend folder!"
     });
   }
 
@@ -179,10 +178,35 @@ app.use('/api/free-certificate', require('./routes/free-certificate'));
 app.use('/api/results', require('./routes/results'));
 app.use('/api/auth', require('./routes/auth'));
 
+
+// ========== SITEMAP ROUTE ==========
+app.get('/sitemap.xml', (req, res) => {
+  const sitemapPath = path.join(__dirname, 'frontend', 'sitemap.xml');
+
+  if (!fs.existsSync(sitemapPath)) {
+    return res.status(404).send("Sitemap not found");
+  }
+
+  res.setHeader("Content-Type", "application/xml");
+  res.sendFile(sitemapPath);
+});
+
+// ========== ROBOTS.TXT ROUTE ==========
+app.get('/robots.txt', (req, res) => {
+  const robotsPath = path.join(__dirname, 'frontend', 'robots.txt');
+
+  if (!fs.existsSync(robotsPath)) {
+    return res.status(404).send("robots.txt not found");
+  }
+
+  res.setHeader("Content-Type", "text/plain");
+  res.sendFile(robotsPath);
+});
+
 // ========== FRONTEND STATIC ==========
 app.use(express.static(path.join(__dirname, 'frontend')));
 
-// ✅ Must be last route
+// ========== CATCH-ALL ROUTE ==========
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
