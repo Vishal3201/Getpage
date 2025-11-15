@@ -12,7 +12,7 @@ const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 5005;
+const port = process.env.PORT || 5006;
 
 // ===== MIDDLEWARE =====
 app.use(express.json({ limit: "10mb" }));
@@ -128,21 +128,33 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// ===== GOOGLE AUTH =====
-app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+// ============================
+// 🚀 FIXED SITEMAP (NOW REAL XML)
+// ============================
+app.get('/sitemap.xml', (req, res) => {
+  const sitemapPath = path.join(__dirname, 'frontend', 'seo', 'sitemap.xml');
 
-app.get(
-  '/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
-  (req, res) => {
-    const token = jwt.sign(
-      { id: req.user._id, email: req.user.email },
-      process.env.JWT_SECRET,
-      { expiresIn: '1d' }
-    );
-    res.redirect(`/dashboard.html?token=${token}`);
+  if (!fs.existsSync(sitemapPath)) {
+    return res.status(404).send("sitemap.xml not found");
   }
-);
+
+  res.setHeader("Content-Type", "application/xml");
+  res.sendFile(sitemapPath);
+});
+
+// ============================
+// 🚀 FIXED ROBOTS.TXT
+// ============================
+app.get('/robots.txt', (req, res) => {
+  const robotsPath = path.join(__dirname, 'frontend', 'seo', 'robots.txt');
+
+  if (!fs.existsSync(robotsPath)) {
+    return res.status(404).send("robots.txt not found");
+  }
+
+  res.setHeader("Content-Type", "text/plain");
+  res.sendFile(robotsPath);
+});
 
 // ===== JOBS.JSON =====
 app.get("/api/jobs", (req, res) => {
@@ -159,8 +171,7 @@ app.get("/api/jobs", (req, res) => {
       return res.status(500).json({ error: "Failed to read jobs.json" });
 
     try {
-      const jobs = JSON.parse(data);
-      res.json(jobs);
+      res.json(JSON.parse(data));
     } catch (e) {
       res.status(500).json({ error: "Invalid JSON in jobs.json" });
     }
@@ -176,38 +187,10 @@ app.use('/api/free-certificate', require('./routes/free-certificate'));
 app.use('/api/results', require('./routes/results'));
 app.use('/api/auth', require('./routes/auth'));
 
-// ============================
-// ✅ FIXED — CORRECT SITEMAP PATH
-// ============================
-app.get('/sitemap.xml', (req, res) => {
-  const sitemapPath = path.join(__dirname, 'frontend', 'seo', 'sitemap.xml');
-
-  if (!fs.existsSync(sitemapPath)) {
-    return res.status(404).send("sitemap.xml not found");
-  }
-
-  res.setHeader("Content-Type", "application/xml");
-  res.sendFile(sitemapPath);
-});
-
-// ============================
-// ✅ FIXED — CORRECT ROBOTS PATH
-// ============================
-app.get('/robots.txt', (req, res) => {
-  const robotsPath = path.join(__dirname, 'frontend', 'seo', 'robots.txt');
-
-  if (!fs.existsSync(robotsPath)) {
-    return res.status(404).send("robots.txt not found");
-  }
-
-  res.setHeader("Content-Type", "text/plain");
-  res.sendFile(robotsPath);
-});
-
 // ===== FRONTEND STATIC =====
 app.use(express.static(path.join(__dirname, 'frontend')));
 
-// ===== CATCH-ALL ROUTE =====
+// ===== MUST BE LAST =====
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
