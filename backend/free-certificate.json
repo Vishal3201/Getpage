@@ -1,62 +1,41 @@
 [
+ {
+  "title":"IT/CSE-Certificate by Microsoft",
+  "link":"https://www.linkedin.com/learning/paths/career-essentials-in-project-management-by-microsoft-and-linkedin"
+ },
+ {
+  "title":"Microsoft Azure AI",
+  "link":"https://www.linkedin.com/learning/paths/microsoft-azure-ai-essentials-professional-certificate-by-microsoft-and-linkedin"
+ },
   {
-    "title": "Fundamentals of Digital Marketing",
-    "provider": "Google Digital Garage",
-    "domain": "Digital Marketing",
-    "link": "https://www.google.com/digitalgarage"
-  },
+  "title":"IT/CSE-Career Essentials in GitHub",
+  "link":"https://www.linkedin.com/learning/paths/career-essentials-in-github-professional-certificate"
+ },
   {
-    "title": "AI for Everyone",
-    "provider": "Coursera (Andrew Ng)",
-    "domain": "Artificial Intelligence",
-    "link": "https://www.coursera.org/learn/ai-for-everyone"
-  },
+  "title":"IT/CSE-AWS Certified AI Practitioner ",
+  "link":"https://www.linkedin.com/learning/aws-certified-ai-practitioner-aif-c01-cert-prep"
+ },
   {
-    "title": "Free Government Courses via SWAYAM / NPTEL",
-    "provider": "SWAYAM / NPTEL",
-    "domain": "Various (Engineering / IT / Management)",
-    "link": "https://swayam.gov.in"
-  },
+  "title":"IT/CSE-large language models (LLMs)",
+  "link":"https://www.linkedin.com/learning/ai-engineering-use-cases-and-projects-on-aws-production-grade-llm-systems"
+ },
   {
-    "title": "Introduction to Python",
-    "provider": "NPTEL / Government",
-    "domain": "Programming / IT Skills",
-    "link": "https://nptel.ac.in/"
-  },
+  "title":"IT/CSE-Amazon's AI services",
+  "link":"https://www.linkedin.com/learning/responsible-ai-on-aws-bedrock-guardrails-amazon-q-security-and-sagemaker-clarify"
+ },
   {
-    "title": "Digital Marketing / Lead Generation / Social Media Strategy",
-    "provider": "HubSpot Academy",
-    "domain": "Digital Marketing",
-    "link": "https://academy.hubspot.com/"
-  },
+  "title":"IT/CSE-natural language processing",
+  "link":"https://www.linkedin.com/learning/natural-language-processing-nlp-on-amazon-bedrock"
+ },
   {
-    "title": "Cloud Computing / Azure Fundamentals",
-    "provider": "Microsoft Learn",
-    "domain": "Cloud Computing",
-    "link": "https://learn.microsoft.com/en-us/training/azure/"
-  },
-  {
-    "title": "Cybersecurity Basics",
-    "provider": "Cisco Networking Academy",
-    "domain": "Cybersecurity",
-    "link": "https://www.netacad.com/courses/cybersecurity"
-  },
-  {
-    "title": "Full-Stack Python / Web Development",
-    "provider": "NASSCOM & Government Collaboration",
-    "domain": "Web Development / Fullstack",
-    "link": "https://www.coursejoin.com/free-online-courses/indian-goverment-nasscom-free-fullstack-python-certification-course-2025-free-certificate-enroll-now/"
-  },
-  {
-    "title": "Entrepreneurship & IP Strategy",
-    "provider": "SWAYAM / Government portals",
-    "domain": "Entrepreneurship / IP",
-    "link": "https://in.indeed.com/career-advice/career-development/online-certificate-courses-in-india-by-government"
-  },
-  {
-    "title": "Soft Skills / Workplace Skills / Communication",
-    "provider": "Govt / NPTEL / SWAYAM",
-    "domain": "Soft Skills",
-    "link": "https://careerskillup.in/free-government-certification-courses-india-2025/"
-  }
+  "title":"IT/CSE-Fundamentals of digital marketing ",
+  "link":"https://www.shiksha.com/online-courses/fundamentals-of-digital-marketing-course-googl1"
+ },
+
+{
+  "title":"IT/CSE-Problem Solving, Python Programming, and Video Games",
+  "link":"https://www.shiksha.com/studyabroad/canada/universities/university-of-alberta/course-online-problem-solving-python-programming-and-video-games"
+ }
+ 
+ 
 ]
